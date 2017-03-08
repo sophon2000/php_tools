@@ -1,4 +1,7 @@
 <?php 
+/*
+枚举算法
+ */
 if (isset($_POST['input1'])&&isset($_POST['input2'])&&
 	isset($_POST['input3'])&&isset($_POST['input4'])&&
 	isset($_POST['input5'])&&isset($_POST['input6'])) {

@@ -1,4 +1,7 @@
 <?php 
+/*
+试探算法改进
+ */
 define('NO', 10);
 echo NO;
 // exit;

@@ -1,5 +1,7 @@
 <?php 
-
+/*
+缓冲
+ */
 set_time_limit(0);
 // 开启缓存
 ob_start();

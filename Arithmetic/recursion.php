@@ -1,4 +1,7 @@
 <?php 
+/*
+递归算法
+ */
 function demo($param)
 {
 	if ($param==1) {

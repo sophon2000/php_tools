@@ -1,4 +1,7 @@
 <?php 
+/*
+获取phpinfo
+ */
 ob_start();
 phpinfo();
 $info = ob_get_contents();
