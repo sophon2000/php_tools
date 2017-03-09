@@ -1,0 +1,50 @@
+PHP操作文件
+
+1. basename()返回路径的文件名部分  
+$path='C:\AppServ\www\test\test.php';  
+echo basename($path);  
+  
+//结果：test.php  
+  
+2. dirname()返回路径的目录部分  
+$path='C:\AppServ\www\test\test.php';  
+echo dirname($path);  
+  
+//结果：C:\AppServ\www\test  
+  
+3. file_get_contents('text.txt') 函数把整个文件读入一个字符串中。  
+  
+4. file_put_contents('text.txt',$str) 函数把一个字符串写入文件中。  
+  
+5. filesize('test.xml') 函数返回指定文件的大小。  
+若成功，则返回文件大小的字节数。若失败，则返回 false 并生成一条 E_WARNING 级的错误。  
+  
+6. disk_free_space('C:') 函数返回目录中的可用空间 以字节为单位。  
+  
+7. disk_total_space('C:') 函数返回指定目录的磁盘总大小 以字节为单位。  
+  
+8. fopen('test.txt','a+') 函数打开文件或者 URL。如果打开失败，本函数返回 FALSE。  
+第一个参数：要打开的文件。第二个参数：打开的模式 a+表示读写 追加方式打开  
+  
+9. fwrite($fp,$str) 函数写入文件（可安全用于二进制文件）。  
+第一个参数：fopen()函数传回的文件句柄。第二个参数：要写入的字符串。  
+  
+10. fclose($fp) 函数关闭一个打开文件。  
+  
+11. unlink('test.txt') 函数删除文件。若成功，则返回 true，失败则返回 false。  
+12. rmdir('upload') 函数删除空的目录。若成功，则该函数返回 true。若失败，则返回 false。  
+  
+13. opendir() 函数打开一个目录句柄，可由 closedir()，readdir() 和 rewinddir() 使用。  
+若成功，则该函数返回一个目录流，否则返回 false 以及一个 error。  
+  
+14. closedir() 函数关闭由 opendir() 函数打开的目录句柄。  
+  
+15. readdir() 函数返回由 opendir() 打开的目录句柄中的条目。  
+若成功，则该函数返回一个文件名，否则返回 false。  
+  
+16. scandir() 函数返回一个数组，其中包含指定路径中的文件和目录。  
+  
+17. is_dir() 函数检查指定的文件是否是目录。  
+  
+18. file_exists() 函数检查文件或目录是否存在。  
+如果指定的文件或目录存在则返回 true，否则返回 false。  

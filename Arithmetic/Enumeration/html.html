@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>符号奥数</title>
+	<style>
+		.input{
+			margin-top: 50px;
+			margin-right: 20px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>这是一道小学数学奥数题</h1>
+	<p id="descrip"></p>
+	<form action="./enumaration.php" method='post'>
+		<label  class="input"><input type="text" name='input1'></label>
+		<label  class="input"><input type="text" name='input2'></label>
+		<label  class="input"><input type="text" name='input3'></label>
+		<label  class="input"><input type="text" name='input4'></label>
+		<label  class="input"><input type="text" name='input5'></label>
+		<label  class="input"><input type="text" name='input6'></label>
+		<label  class="input"><input type="submit"></label>
+	</form>
+	<script>
+		var per = document.getElementById('descrip');
+		var input = document.getElementsByTagName('input');
+		for (var i = 0; i < input.length; i++) {
+			(function(i){
+				input[i].onblur=function(){
+					per.innerHTML = per.innerHTML+'?'+this.value;
+				}
+				if (i==5) {
+					input[i].onblur=function(){
+					per.innerHTML = per.innerHTML+'='+this.value;
+					}
+				}
+				if(i==0||i==6) {
+					input[i].onblur=function(){
+						per.innerHTML = per.innerHTML+this.value;
+					}
+				}
+			})(i)
+		}
+	</script>
+</body>
+</html>
