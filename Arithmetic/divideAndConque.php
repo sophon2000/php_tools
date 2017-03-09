@@ -37,7 +37,8 @@ function daily($no,$times)
 	return $a;
 }
 $time = 4;
-daily(1,$time);
+$a = daily(1,$time);
+var_dump($a);
 for ($i=2; $i <= $time; $i++) {
 	$day = $i-1; 
 	echo '第'.$day.'天';
