@@ -12,7 +12,7 @@ function demo($condition = 'email',$match,$min=6,$max=20)
 			// 验证用户的操作
 			break;
 		default:
-			# code...
+			# code...1
 			break;
 	}
 }
