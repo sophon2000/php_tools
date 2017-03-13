@@ -4,9 +4,9 @@
  */
 
 /**
- * [去除转义字符,保留转移后的结果]
- * @param  [mixed] $var [需要去除的数组或字符串]
- * @return [mixed]      [处理后的数据]
+ * [反转义字符串或数组中的 \]
+ * @param  [mixed] $var [需要转义的字符串或数组]
+ * @return [mixed]      [将字符串或数组中的 \' \“ \ \ 转换为 ' ” \ 并返回]
  */
 function istripslashes($var) {
 	if (is_array($var)) {
@@ -20,7 +20,7 @@ function istripslashes($var) {
 }
 
 /**
- * [html实体化的转化]
+ * [转义字符串或数组中的的HTML]
  * @param  [mixed] $var [需要实体化的数组或字符串]
  * @return [mixed]      [处理后的数据]
  */
@@ -52,8 +52,8 @@ function isetcookie($key, $value, $expire = 0, $httponly = false) {
 }
 
 /**
- * [getip 获得当前IP]
- * @return [string] [当前ip]
+ * [getip 获取客户端IP]
+ * @return [string] [获取客户端IP地址并返回，如果获取失败返回 unknow]
  */
 function getip() {
 	static $ip = '';
@@ -145,7 +145,7 @@ function getip() {
 }
 
 /**
- * [istrlen 自定义计算字符串长度,防止没有]
+ * [istrlen 获取字符串长度]
  * @param  [string] $string  [输入字符串]
  * @param  [string] $charset [编码]
  * @return [string]          [输出字符串]
@@ -255,8 +255,8 @@ function checksubmit($method = 'get', $allowget = false) {
 }
 
 /**
- * 优化json_encode
- * @param  mixed  $value    需要优化的对象
+ * JSON编码,加上转义操作,适合于JSON入库
+ * @param  string  $value    需要进行编码的字符串
  * @param  integer $options 二进制掩码
  * @return json           
  */
@@ -295,8 +295,8 @@ function iunserializer($value) {
 /**
  * 是否是序列化数据
  * @param  [mixed]  $data   检查的数组
- * @param  boolean $strict 严格模式
- * @return boolean        
+ * @param  boolean $strict  是否为严格模式，默认为 true
+ * @return boolean          判断参数是否会序列化后的结果，并返回一个布尔值的结果
  */
 function is_serialized($data, $strict = true) {
 	if (!is_string($data)) {
@@ -348,10 +348,13 @@ function is_serialized($data, $strict = true) {
 	}
 	return false;
 }
+
+
+
 /**
- * 是否是base64数据
- * @param  mixed  $str [输入数据]
- * @return boolean     
+ * 判断是否为加密字符串
+ * @param  string  $str [需要进行判断的字符串]
+ * @return boolean      [判断参数是否为加密后的字符串，并返回一个布尔值的结果]
  */
 function is_base64($str){
 	if(!is_string($str)){
@@ -359,14 +362,16 @@ function is_base64($str){
 	}
 	return $str == base64_encode(base64_decode($str));
 }
+
+
 /**
  * 分页
- * @param  [type]  $total     [description]
- * @param  [type]  $pageIndex [description]
- * @param  integer $pageSize  [description]
- * @param  string  $url       [description]
- * @param  array   $context   [description]
- * @return [type]             [description]
+ * @param  [int]  $total     [总记录数]
+ * @param  [int]  $pageIndex [当前页码]
+ * @param  integer $pageSize  [每页显示条数]
+ * @param  string  $url       [要生成的 url 格式]
+ * @param  array   $context   [附加配置参数信息]
+ * @return [type]             [根据参数计算并返回分页导航条的HTML代码。其中参数 $total 表示为总记录条数， $pageIndex 表示当前页码， $pageSize 表示每页显示条数， 可选参数 $url 表示要生成的 url 格式，如果为空系统将自动生成，可选参数 $context 可以设置分页导航条的一些信息]
  */
 function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '', 'callbackfuncname' => '')) {
 	global $_W;
@@ -472,25 +477,26 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 }
 
 /**
- * 查找一个字符串是否在另一个字符串中
- * @param  string $string 需要查找的字符串
- * @param  string $find   被查找的字符串
- * @return blooean         
+ * 判断字符串是否包含子串
+ * @param  string $string 在该字符串中进行查找
+ * @param  string $find   需要查找的字符串
+ * @return blooean        判断字符串 $string 中是否包含 $find，如果包含返回 true ，否则返回 false  
  */
 function strexists($string, $find) {
 	return !(strpos($string, $find) === FALSE);
 }
 
+
+
 /**
- * 安全截取字符串
- * @param  string  $string  被截字符串
- * @param  integer  $length  截取长度
- * @param  boolean $havedot [description]
- * @param  string  $charset 编码方式
- * @return string           截取得到的字符串
+ * 截取|替换字符串
+ * @param  string  $string  [对该字符串进行截取]
+ * @param  integer $length  [指定截取长度]
+ * @param  boolean $havedot [超出指定长度的字符是否用 '…' 显示，默认为 false]
+ * @param  string  $charset [字符编码]
+ * @return string           [从字符串左侧开始进行截取，参数 $string 表示要进行截取的字符串，参数 $length 表示要截取的长度， 可选参数 $havedot 为 true, 超过指定长度的字符串将用 '…' 显示]
  */
 function cutstr($string, $length, $havedot = false, $charset = '') {
-	global $_W;
 	if (empty($charset)) {
 		$charset = $_W['charset'];
 	}
@@ -583,9 +589,9 @@ function cutstr($string, $length, $havedot = false, $charset = '') {
 }
 
 /**
- * 规范化计算文件大小
- * @param  [type] $size filesize
- * @return string 
+ * 格式化显示文件大小
+ * @param  [integer] $size 文件原始大小
+ * @return string  将文件大小进行友好格式化然后返回。
  */
 function sizecount($size) {
 	if($size >= 1073741824) {
@@ -600,11 +606,12 @@ function sizecount($size) {
 	return $size;
 }
 
+
 /**
- * emotion表情
- * @param  string $message [description]
- * @param  string $size    [description]
- * @return [type]          [description]
+ * 获取表情字符串HTML
+ * @param  string $message [表情字符串]
+ * @param  string $size    [表情图片大小]
+ * @return [type]          [获取表情字符串HTML代码并返回，可选参数 $message 表示指定表情的字符，可选参数 $size 表示表情尺寸]
  */
 function emotion($message = '', $size = '24px') {
 	$emotions = array(
@@ -626,7 +633,15 @@ function emotion($message = '', $size = '24px') {
 	return $message;
 }
 
-// array转化为XML
+
+
+
+/**
+ * [array2xml 获取数组的XML结构]
+ * @param  [array]  $arr   [需要进行转换的数组]
+ * @param  integer  $level [节点层级, 1 为 Root]
+ * @return [type]          [将参数数组转换为XML结构并且返回，可选参数 $level 表示节点的层级，默认为1]
+ */
 function array2xml($arr, $level = 1) {
 	$s = $level == 1 ? "<xml>" : '';
 	foreach ($arr as $tagname => $value) {
@@ -795,4 +810,132 @@ function strip_gpc($values, $type = 'g') {
 		}
 	}
 	return $values;
+}
+
+
+/**
+ * [array_elements 从一个数组中取得若干元素]
+ * @param  [array]  $keys    [需要筛选的键名列表]
+ * @param  [array]  $src     [进行筛选的数组]
+ * @param  mixed    $default [如果原数组未定义某个键，则使用 $default 替换，默认为 false]
+ * @return [type]            [返回筛选并替换完成的数组]
+ */
+function array_elements($keys, $src, $default = FALSE) {
+	$return = array();
+	if(!is_array($keys)) {
+		$keys = array($keys);
+	}
+	foreach($keys as $key) {
+		if(isset($src[$key])) {
+			$return[$key] = $src[$key];
+		} else {
+			$return[$key] = $default;
+		}
+	}
+	return $return;
+}
+
+/**
+ * [authcode 字符串加密或解密]
+ * @param  [string]  $string    [要加密或解密的字符串]
+ * @param  string  $operation [操作类型 'ENCODE' 或 'DECODE']
+ * @param  string  $key       [加密密钥或解密密钥]
+ * @param  integer $expiry    [过期时间, 秒为单位]
+ * @return [type]             [根据参数 $operation 决定对指定字符 $string 进行加密或者解密操作， 可选参数 $key 表示加密密钥或解密密钥，可选参数 $expiry 表示过期时间]
+ */
+function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+	$ckey_length = 4;
+	$key = md5($key != '' ? $key : 'myKey');
+	$keya = md5(substr($key, 0, 16));
+	$keyb = md5(substr($key, 16, 16));
+	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length) : substr(md5(microtime()), -$ckey_length)) : '';
+
+	$cryptkey = $keya . md5($keya . $keyc);
+	$key_length = strlen($cryptkey);
+
+	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0) . substr(md5($string . $keyb), 0, 16) . $string;
+	$string_length = strlen($string);
+
+	$result = '';
+	$box = range(0, 255);
+
+	$rndkey = array();
+	for ($i = 0; $i <= 255; $i++) {
+		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
+	}
+
+	for ($j = $i = 0; $i < 256; $i++) {
+		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
+		$tmp = $box[$i];
+		$box[$i] = $box[$j];
+		$box[$j] = $tmp;
+	}
+
+	for ($a = $j = $i = 0; $i < $string_length; $i++) {
+		$a = ($a + 1) % 256;
+		$j = ($j + $box[$a]) % 256;
+		$tmp = $box[$a];
+		$box[$a] = $box[$j];
+		$box[$j] = $tmp;
+		$result .= chr(ord($string[$i]) ^ ($box[($box[$a] + $box[$j]) % 256]));
+	}
+
+	if ($operation == 'DECODE') {
+		if ((substr($result, 0, 10) == 0 || substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) == substr(md5(substr($result, 26) . $keyb), 0, 16)) {
+			return substr($result, 26);
+		} else {
+			return '';
+		}
+	} else {
+		return $keyc . str_replace('=', '', base64_encode($result));
+	}
+
+}
+
+
+/**
+ * [range_limit 判断给定参数是否位于区间内或将参数转换为区间内的数]
+ * @param  [string]  $num        [输入参数]
+ * @param  [int]  $downline   [区间下限]
+ * @param  [int]  $upline     [区间上限]
+ * @param  boolean $returnNear [输入参数处理方式]
+ * @return [type]              [判断给定参数是否位于区间内，并且根据参数 $returnNear 决定返回判断结果还是返回转换后的值]
+ */
+function range_limit($num, $downline, $upline, $returnNear = true) {
+	$num = intval($num);
+	$downline = intval($downline);
+	$upline = intval($upline);
+	if($num < $downline){
+		return empty($returnNear) ? false : $downline;
+	} elseif ($num > $upline) {
+		return empty($returnNear) ? false : $upline;
+	} else {
+		return empty($returnNear) ? true : $num;
+	}
+}
+
+
+/**
+ * [ver_compare 比较字符串int类型大小]
+ * @param  [string] $version1 [字符串1]
+ * @param  [string] $version2 [字符串2]
+ * @return [type]           [判断 $arg1 是否大于$arg2，
+ *                          如果大于返回 1， 否则返回 -1]
+ */
+function ver_compare($version1, $version2) {
+	$version1 = str_replace('.', '', $version1);
+	$version2 = str_replace('.', '', $version2);
+	$oldLength = istrlen($version1);
+	$newLength = istrlen($version2);
+	if(is_numeric($version1) && is_numeric($version2)) {
+		if ($oldLength > $newLength) {
+			$version2 .= str_repeat('0', $oldLength - $newLength);
+		}
+		if ($newLength > $oldLength) {
+			$version1 .= str_repeat('0', $newLength - $oldLength);
+		}
+		$version1 = intval($version1);
+		$version2 = intval($version2);
+	}
+	return version_compare($version1, $version2);
 }
