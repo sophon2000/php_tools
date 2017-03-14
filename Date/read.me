@@ -1,0 +1,47 @@
+时间常用函数
+
+mktime 函数
+mktime() 函数返回一个日期的 Unix 时间戳。
+参数总是表示 GMT 日期，因此 is_dst 对结果没有影响。
+参数可以从右到左依次空着，空着的参数会被设为相应的当前 GMT 值。
+语法：mktime(hour,minute,second,month,day,year,is_dst)
+参数               描述  
+hour       可选。规定小时。  
+minute   可选。规定分钟。  
+second   可选。规定秒。  
+month    可选。规定用数字表示的月。  
+day         可选。规定天。  
+year        可选。规定年。在某些系统上，合法值介于 1901 - 2038 之间。不过在 PHP 5 中已经不存在这个限制了。  
+is_dst  可选。如果时间在日光节约时间(DST)期间，则设置为1，否则设置为0，若未知，则设置为-1。   
+自 5.1.0 起，is_dst 参数被废弃。因此应该使用新的时区处理特性。  
+例子：mktime() 函数对于日期运算和验证非常有用。它可以自动校正越界的输入：   
+
+
+<?php  echo(date("M-d-Y",mktime(0,0,0,12,36,2001)));  echo(date("M-d-Y",mktime(0,0,0,14,1,2001)));  echo(date("M-d-Y",mktime(0,0,0,1,1,2001)));  echo(date("M-d-Y",mktime(0,0,0,1,1,99)));  ?> 
+输出：   
+Jan-05-2002  Feb-01-2002  Jan-01-2001  Jan-01-1999
+ 
+strtotime 函数
+strtotime() 函数将任何英文文本的日期时间描述解析为 Unix 时间戳。
+语法：strtotime(time,now)
+参数      描述  
+time    规定要解析的时间字符串。  
+now     用来计算返回值的时间戳。如果省略该参数，则使用当前时间。   
+  一周之后:  strtotime("+1 week") ;
+  一周之前:  strtotime("-1 week") ;
+  一月之后:  strtotime("+1 months") ;
+  一天之后:  strtotime("+1 days") ;      
+  30秒之后 strtotime( " +30 seconds " );
+  20分钟之后 strtotime( " +20 minutes " );
+  12个小时之后 strtotime( " +12 hours " );
+
+
+date 函数
+date() 函数格式化一个本地时间／日期。
+语法
+date(format,timestamp) 
+date_default_timezone_set 函数
+date_default_timezone_set() 函数设置用在脚本中所有日期/时间函数的默认时区。
+date_default_timezone_set(timezone)
+
+
