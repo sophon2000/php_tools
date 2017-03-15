@@ -1,0 +1,17 @@
+{
+    "name": "GeorgeBai123/Practice",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/GeorgeBai123/Practice"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "phpoffice/phpexcel": "1.8.*",
+        "phpmailer/phpmailer": "~5.2",
+        "hautelook/phpass": "1.0.0",
+        "smarty/smarty": "~3.1",
+        "tecnickcom/tcpdf":"6.2.*"
+    }
+}
