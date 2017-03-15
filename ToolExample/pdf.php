@@ -1,21 +1,20 @@
 <?php 
 functioncreatePdfFile($frontData)
+{
 
-    {
+       // 新建一个pdf文件：
 
-       /*新建一个pdf文件：
+       // Orientation：orientation属性用来设置文档打印格式是“Portrait”还是“Landscape”。 Landscape为横式打印，Portrait为纵向打印
 
-       Orientation：orientation属性用来设置文档打印格式是“Portrait”还是“Landscape”。 Landscape为横式打印，Portrait为纵向打印
+       // Unit：设置页面的单位。pt：点为单位，mm：毫米为单位，cm：厘米为单位，in：英尺为单位
 
-       Unit：设置页面的单位。pt：点为单位，mm：毫米为单位，cm：厘米为单位，in：英尺为单位
+       // Format：设置打印格式，一般设置为A4
 
-       Format：设置打印格式，一般设置为A4
+       // Unicode：为true，输入的文本为Unicode字符文本
 
-       Unicode：为true，输入的文本为Unicode字符文本
+       // Encoding：设置编码格式，默认为utf-8
 
-       Encoding：设置编码格式，默认为utf-8
-
-       Diskcache：为true，通过使用文件系统的临时缓存数据减少RAM的内存使用。 */
+       // Diskcache：为true，通过使用文件系统的临时缓存数据减少RAM的内存使用。 
 
        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT,true, 'UTF-8', false);
 
@@ -101,19 +100,19 @@ functioncreatePdfFile($frontData)
 
        $pdf->SetLineStyle(array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => '0', 'color' => array(0, 0,0)));
 
-       /*画一条线：
+       // 画一条线：
 
-       x1：线条起点x坐标
+       // x1：线条起点x坐标
 
-       y1：线条起点y坐标
+       // y1：线条起点y坐标
 
-       x2：线条终点x坐标
+       // x2：线条终点x坐标
 
-       y2：线条终点y坐标
+       // y2：线条终点y坐标
 
-       style：SetLineStyle的效果一样
+       // style：SetLineStyle的效果一样
 
-       */
+       
 
 //       $pdf->Line($x1, $y1, $x2, $y2, $style=array());
 
@@ -303,4 +302,6 @@ functioncreatePdfFile($frontData)
 
        return $pdf->Output("test001.pdf", "F");
 
-    }
+}
+$a = functioncreatePdfFile();
+var_dump($a);

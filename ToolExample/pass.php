@@ -1,5 +1,5 @@
 <?php
-
+use Hautelook\Phpass\PasswordHash;
 require_once("../vendor/autoload.php");
 
 $passwordHasher = new PasswordHash(8,false);
