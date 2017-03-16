@@ -1,6 +1,4 @@
 <?php 
-function createPdfFile($frontData)
-{
 
        // 新建一个pdf文件：
 
