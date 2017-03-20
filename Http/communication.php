@@ -1,7 +1,7 @@
 <?php
 /**
  *  http操作相关函数
- * 涉及到get/post/email
+ * 涉及到get/post
  * 
  */
 
@@ -248,10 +248,10 @@ function ihttp_get($url) {
 	return ihttp_request($url);
 }
 
-参数
-$url		
-$data		
-返回值
+// 参数
+// $url		
+// $data		
+// 返回值
 
 
 /**
@@ -267,94 +267,4 @@ function ihttp_post($url, $data) {
 
 
 
-/**
- * [ihttp_email 发送email]
- * @param  [type]  $to      string  [收件人邮箱]
- * @param  [type]  $subject string  [邮件主题]
- * @param  [type]  $body    string  [邮件内容]
- * @param  boolean $global  boolean [是否使用系统邮箱配置信息，默认使用]
- * @return [type]                   [发送成功返回 true, 失败返回错误信息]
- */
-function ihttp_email($to, $subject, $body, $global = false) {
-	static $mailer;
-	set_time_limit(0);
 
-	if (empty($mailer)) {
-		if (!class_exists('PHPMailer')) {
-			require './phpmailer/PHPMailerAutoload.php';
-		}
-		$mailer = new PHPMailer();
-		global $_W;
-		$config = $GLOBALS['_W']['setting']['mail'];
-		if (!$global) {
-			$row = pdo_get("uni_settings", array('uniacid' => $_W['uniacid']), array('notify'));
-			$row['notify'] = @iunserializer($row['notify']);
-			if (!empty($row['notify']) && !empty($row['notify']['mail'])) {
-				$config = $row['notify']['mail'];
-			}
-		}
-
-		$config['charset'] = 'utf-8';
-		if ($config['smtp']['type'] == '163') {
-			$config['smtp']['server'] = 'smtp.163.com';
-			$config['smtp']['port'] = 25;
-		} elseif ($config['smtp']['type'] == 'qq') {
-			$config['smtp']['server'] = 'ssl://smtp.qq.com';
-			$config['smtp']['port'] = 465;
-		} else {
-			if (!empty($config['smtp']['authmode'])) {
-				$config['smtp']['server'] = 'ssl://' . $config['smtp']['server'];
-			}
-		}
-
-		if (!empty($config['smtp']['authmode'])) {
-			if (!extension_loaded('openssl')) {
-				return error(1, '请开启 php_openssl 扩展！');
-			}
-		}
-		$mailer->signature = $config['signature'];
-		$mailer->isSMTP();
-		$mailer->CharSet = $config['charset'];
-		$mailer->Host = $config['smtp']['server'];
-		$mailer->Port = $config['smtp']['port'];
-		$mailer->SMTPAuth = true;
-		$mailer->Username = $config['username'];
-		$mailer->Password = $config['password'];
-		!empty($config['smtp']['authmode']) && $mailer->SMTPSecure = 'ssl';
-
-		$mailer->From = $config['username'];
-		$mailer->FromName = $config['sender'];
-		$mailer->isHTML(true);
-	}
-	if ($body) {
-		if (is_array($body)) {
-			$body = '';
-			foreach($body as $value) {
-				if (substr($value, 0, 1) == '@') {
-					if(!is_file($file = ltrim($value, '@'))){
-						return error(1, $file . ' 附件不存在或非文件！');
-					}
-					$mailer->addAttachment($file);	
-				} else {
-					$body .= $value . '\n';
-				}
-			}
-		} else {
-			if (substr($body, 0, 1) == '@') {
-				$mailer->addAttachment(ltrim($body, '@'));	
-				$body = '';
-			}
-		}
-	}
-	if (!empty($mailer->signature)) {
-		$body .= htmlspecialchars_decode($mailer->signature);
-	}
-	$mailer->Subject = $subject;
-	$mailer->Body = $body;
-	$mailer->addAddress($to);
-	if ($mailer->send()) {
-		return true;
-	} else {
-		return error(1, $mailer->ErrorInfo);
-	}
-}
