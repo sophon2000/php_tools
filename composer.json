@@ -12,6 +12,7 @@
         "phpmailer/phpmailer": "~5.2",
         "hautelook/phpass": "1.0.0",
         "smarty/smarty": "~3.1",
-        "tecnickcom/tcpdf":"6.2.*"
+        "tecnickcom/tcpdf":"6.2.*",
+        "endroid/qrcode":"1.9.*"
     }
 }

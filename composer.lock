@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "df2d35dee985d8c0eb20dac0d31babba",
+    "content-hash": "023fa9e8a896ad6f47271060cfc4dfaf",
     "packages": [
+        {
+            "name": "endroid/qrcode",
+            "version": "1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/QrCode.git",
+                "reference": "ab09b42778ad67cfe850f9c23165f8d08b756680"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/endroid/QrCode/ab09b42778ad67cfe850f9c23165f8d08b756680.zip",
+                "reference": "ab09b42778ad67cfe850f9c23165f8d08b756680",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.4",
+                "symfony/options-resolver": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "sensio/framework-extra-bundle": "^3.0",
+                "symfony/browser-kit": "^2.3|^3.0",
+                "symfony/framework-bundle": "^2.3|^3.0",
+                "symfony/http-kernel": "^2.3|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\QrCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl",
+                    "homepage": "http://endroid.nl/"
+                }
+            ],
+            "description": "Endroid QR Code",
+            "homepage": "https://github.com/endroid/QrCode",
+            "keywords": [
+                "bundle",
+                "code",
+                "endroid",
+                "qr",
+                "qrcode",
+                "symfony"
+            ],
+            "time": "2017-01-03T11:02:14+00:00"
+        },
         {
             "name": "hautelook/phpass",
             "version": "1.0.0",
@@ -52,24 +112,40 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v5.2.22",
+            "version": "v5.2.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "b18cb98131bd83103ccb26a888fdfe3177b8a663"
+                "reference": "7115df4a6f76281109ebe352900c42403b728bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/PHPMailer/PHPMailer/b18cb98131bd83103ccb26a888fdfe3177b8a663.zip",
-                "reference": "b18cb98131bd83103ccb26a888fdfe3177b8a663",
+                "url": "https://files.phpcomposer.com/files/PHPMailer/PHPMailer/7115df4a6f76281109ebe352900c42403b728bb4.zip",
+                "reference": "7115df4a6f76281109ebe352900c42403b728bb4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.0.0"
             },
             "require-dev": {
-                "phpdocumentor/phpdocumentor": "*",
-                "phpunit/phpunit": "4.7.*"
+                "doctrine/annotations": "1.2.*",
+                "jms/serializer": "0.16.*",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "4.8.*",
+                "symfony/debug": "2.8.*",
+                "symfony/filesystem": "2.8.*",
+                "symfony/translation": "2.8.*",
+                "symfony/yaml": "2.8.*",
+                "zendframework/zend-cache": "2.5.1",
+                "zendframework/zend-config": "2.5.1",
+                "zendframework/zend-eventmanager": "2.5.1",
+                "zendframework/zend-filter": "2.5.1",
+                "zendframework/zend-i18n": "2.5.1",
+                "zendframework/zend-json": "2.5.1",
+                "zendframework/zend-math": "2.5.1",
+                "zendframework/zend-serializer": "2.5.*",
+                "zendframework/zend-servicemanager": "2.5.*",
+                "zendframework/zend-stdlib": "2.5.1"
             },
             "suggest": {
                 "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
@@ -108,7 +184,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2017-01-09T09:33:47+00:00"
+            "time": "2017-03-15T19:32:56+00:00"
         },
         {
             "name": "phpoffice/phpexcel",
@@ -219,6 +295,60 @@
                 "templating"
             ],
             "time": "2016-12-14T21:57:25+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v3.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "56e3d0a41313f8a54326851f10690d591e62a24c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/options-resolver/56e3d0a41313f8a54326851f10690d591e62a24c.zip",
+                "reference": "56e3d0a41313f8a54326851f10690d591e62a24c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony OptionsResolver Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "time": "2017-02-21T09:12:04+00:00"
         },
         {
             "name": "tecnickcom/tcpdf",
