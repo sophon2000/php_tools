@@ -16,15 +16,29 @@ $qrCode
     ->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0])
     ->setLabel('Scan the code')
     ->setLabelFontSize(16)
-    ->setImageType(QrCode::IMAGE_TYPE_PNG)
-;
+    ->setImageType(QrCode::IMAGE_TYPE_PNG);
 
-// now we can directly output the qrcode
-header('Content-Type: '.$qrCode->getContentType());
-$qrCode->render();
 
-// save it to a file
-$qrCode->save('qrcode.png');
 
-// or create a response object
-$response = new Response($qrCode->get(), 200, ['Content-Type' => $qrCode->getContentType()]);
+$method = 'display';
+
+
+
+switch ($method) {
+	case 'display':
+		// now we can directly output the qrcode
+		header('Content-Type: '.$qrCode->getContentType());
+		$qrCode->render();
+		break;
+	case 'dowload':
+		// save it to a file
+		$qrCode->save('qrcode.png');
+		break;	
+	case 'response':
+		// or create a response object
+		$response = new Response($qrCode->get(), 200, ['Content-Type' => $qrCode->getContentType()]);
+		break;
+	default:
+		# code...
+		break;
+}
