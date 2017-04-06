@@ -20,11 +20,10 @@ function my_rmdir($path)
 	@$dh = opendir($path);
 	while (!!$file = @readdir($dh)) {
 		if ($file != '.'&& $file != '..') {
-			var_dump($fullpath);
-			if (!is_dir($fullpath)) {
-				unlink($fullpath);	
+			if (!is_dir($file)) {
+				unlink($file);	
 			}else{
-				my_rmdir($fullpath);
+				my_rmdir($file);
 			}
 		}
 	}
@@ -65,6 +64,60 @@ function my_rmdir_two($path)
 		unlink($path);
 	}
 }
+
+function deleteAll($path) {
+    $op = dir($path);
+    while(false != ($item = $op->read())) {
+        if($item == '.' || $item == '..') {
+            continue;
+        }
+        if(is_dir($op->path.'/'.$item)) {
+            deleteAll($op->path.'/'.$item);
+            rmdir($op->path.'/'.$item);
+        } else {
+            unlink($op->path.'/'.$item);
+        }
+    
+    }   
+}
+
+function renameAll($path,$dest) {
+    $op = dir($path);
+    while(false != ($item = $op->read())) {
+        if($item == '.' || $item == '..') {
+            continue;
+        }
+        if(is_dir($op->path.'/'.$item)) {
+            renameAll($op->path.'/'.$item,$dest);
+            rename($op->path.'/'.$item);
+        } else {
+            rename($op->path.'/'.$item);
+        }
+    
+    }   
+}
+
+$path = 'C:\wamp64\www\abcd\5';
+$list = scandir($path);
+foreach ($list as $key => $value) {
+	if($value == '.' || $value == '..') {
+            continue;
+        }
+	if(is_file($path.'\\'.$value)){
+		$arr = explode('.', $value)[0];
+		if(is_dir($path.'\\'.$arr.'.sdr')){
+			rename($path.'\\'.$value, 'C:\wamp64\www\abcd\new\\'.$value);
+			rename($path.'\\'.$arr.'.sdr', 'C:\wamp64\www\abcd\new\\'.$arr.'.sdr');
+		}
+	}
+}
+var_dump($list);
+// exit;
+// if (my_rmdir_two($path)) {
+// 	echo 'SUCCESSFUL';
+// }else{
+// 	echo 'FAILED';
+// }
 
 $path = 'C:\wamp64\www\Develop\My\test';
 exit;

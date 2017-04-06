@@ -17,5 +17,12 @@ function demo($condition = 'email',$match,$min=6,$max=20)
 	}
 }
 
-
-	
+$cDevide  = array( 'coins','totalstock',
+					'cost','exchange','recharge_money','money',
+					'money',
+				);
+$cNoremal = array( 'expense_active','totalgift',);
+var_dump(array_intersect(array(1,2), array(2)));
+if(array_intersect(array(1,2), array(2)) === array(2)){
+echo 'aaaaaaaa';
+}
