@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f18b88dd5efd6a1e2374fe2f1a9b3c2",
+    "content-hash": "2963254dcb928a1a32be1be20ee601d2",
     "packages": [
         {
             "name": "endroid/qrcode",
-            "version": "1.9.1",
+            "version": "1.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/QrCode.git",
-                "reference": "ab09b42778ad67cfe850f9c23165f8d08b756680"
+                "reference": "c9644bec2a9cc9318e98d1437de3c628dcd1ef93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/endroid/QrCode/ab09b42778ad67cfe850f9c23165f8d08b756680.zip",
-                "reference": "ab09b42778ad67cfe850f9c23165f8d08b756680",
+                "url": "https://files.phpcomposer.com/files/endroid/QrCode/c9644bec2a9cc9318e98d1437de3c628dcd1ef93.zip",
+                "reference": "c9644bec2a9cc9318e98d1437de3c628dcd1ef93",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,68 @@
                 "qrcode",
                 "symfony"
             ],
-            "time": "2017-01-03T11:02:14+00:00"
+            "time": "2017-04-08T09:13:59+00:00"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "2.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/filp/whoops/f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3.zip",
+                "reference": "f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9 || ^7.0",
+                "psr/log": "^1.0.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "symfony/var-dumper": "^2.6 || ^3.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\": "src/Whoops/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://filp.github.io/whoops/",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2017-03-07T09:04:45+00:00"
         },
         {
             "name": "hautelook/phpass",
@@ -285,6 +346,53 @@
             "time": "2016-12-20T22:15:41+00:00"
         },
         {
+            "name": "matyhtf/swoole_framework",
+            "version": "1.16.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swoole/framework.git",
+                "reference": "6ac9cdbef5d6ac0751d49f67e746d15044eac8cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/swoole/framework/6ac9cdbef5d6ac0751d49f67e746d15044eac8cd.zip",
+                "reference": "6ac9cdbef5d6ac0751d49f67e746d15044eac8cd",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "^2.1",
+                "symfony/console": "3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Swoole": "libs/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Tianfeng Han",
+                    "email": "mikan.tenny@gmail.com"
+                }
+            ],
+            "description": "PHP Networking framework & Application Server.",
+            "homepage": "http://www.swoole.com/",
+            "keywords": [
+                "Socket",
+                "client",
+                "framework",
+                "library",
+                "server",
+                "webserver",
+                "websocket"
+            ],
+            "time": "2017-02-09T09:47:33+00:00"
+        },
+        {
             "name": "phpmailer/phpmailer",
             "version": "v5.2.23",
             "source": {
@@ -418,6 +526,53 @@
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
+            "name": "psr/log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10T12:19:37+00:00"
+        },
+        {
             "name": "seld/jsonlint",
             "version": "1.6.0",
             "source": {
@@ -520,17 +675,137 @@
             "time": "2016-12-14T21:57:25+00:00"
         },
         {
-            "name": "symfony/options-resolver",
-            "version": "v3.2.6",
+            "name": "symfony/console",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "56e3d0a41313f8a54326851f10690d591e62a24c"
+                "url": "https://github.com/symfony/console.git",
+                "reference": "09d0fd33560e3573185a2ea17614e37ba38716c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/options-resolver/56e3d0a41313f8a54326851f10690d591e62a24c.zip",
-                "reference": "56e3d0a41313f8a54326851f10690d591e62a24c",
+                "url": "https://files.phpcomposer.com/files/symfony/console/09d0fd33560e3573185a2ea17614e37ba38716c5.zip",
+                "reference": "09d0fd33560e3573185a2ea17614e37ba38716c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/debug": "~2.8|~3.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/filesystem": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/filesystem": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-11-16T22:18:16+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/debug/56f613406446a4a0a031475cfd0a01751de22659.zip",
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+            },
+            "require-dev": {
+                "symfony/class-loader": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-03-28T21:38:24+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "6a19be85237fe8bbd4975f86942b4763bb0da6ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/options-resolver/6a19be85237fe8bbd4975f86942b4763bb0da6ca.zip",
+                "reference": "6a19be85237fe8bbd4975f86942b4763bb0da6ca",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +846,66 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-03-21T21:44:32+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/e79d363049d1c2128f133a2667e4f4190904f7f4.zip",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "tecnickcom/tcpdf",

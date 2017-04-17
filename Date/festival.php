@@ -382,25 +382,33 @@ class Lunar {
             ),
             array(
                 array(
-                    "date"=>"1/1",
+                    "date"=>"01/01",
                     "info"=>"元旦"
                 ),
                 array(
-                    "date"=>"2/14",
+                    "date"=>"02/14",
                     "info"=>"情人节"
+                ),
+                array(
+                    "date"=>"03/08",
+                    "info"=>"妇女节"
                 ), 
                 array(
-                    "date"=>"5/1",
+                    "date"=>"05/01",
                     "info"=>"劳动节"
                 ),
                 array(
-                    "date"=>"10/1",
+                    "date"=>"06/01",
+                    "info"=>"儿童节"
+                ),
+                array(
+                    "date"=>"10/01",
                     "info"=>"国庆节"
                 ),
                 array(
                     "date"=>"12/25",
-                    "info"=>"圣诞节",
-                    "wish"=>"Merry Christmas！"
+                "info"=>"圣诞节",
+                "wish"=>"Merry Christmas！"
                 )
             )
         );
