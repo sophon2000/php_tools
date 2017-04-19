@@ -50,8 +50,11 @@ Available algorithms:
 
  }
 
-$result = myBatchTest(array('heapSort'),array('10'),1);
-var_dump($result);
+$result1 = runTests(array('heapSort'),'10000',1);
+echo "<br>";
+$result2 = runTests(array('countingSort'),'10000',1);
+echo "<br>";
+$result3 = runTests(array('shellSort'),'10000',1);
 exit;
 $sizes = array(1, 100, 200, 400, 600, 800, 1000, 5000, 10000, 15000, 20000, 25000, 30000);
 if (isset($argv[2]) && $argv[2] == 'extra') {
@@ -173,63 +176,24 @@ function batchTest(array $functions, $sizes, $testSize = 1) {
 	// }
 }
 
-function myBatchTest(array $functions, $sizes, $testSize = 1) {
-	$times = array();
-	$files = array();
-	// foreach ($functions as $f) {
-	// 	$files[$f] = fopen('result_'.$f.(BIGINT ? 'big' : null).'.txt', 'w');
-	// 	foreach ($sizes as $s)
-	// 		$times[$f][$s] = 0;
-	// }
-
-	foreach ($sizes as $arraySize) {
-		echo 'Start '.$arraySize;
-		for ($i = 0; $i < $testSize; $i ++) {
-			$a = fillArray($arraySize, BIGINT);
-			$expected = $a;
-			sort($expected);
-			foreach ($functions as $function) {
-				echo '.';
-				$array = $a;
-				$time = testAlgorithm($function, $array);
-				// $times[$function][$arraySize] += $time;
-				if ($array != $expected) {
-					echo $function." is wrong".EOL;
-					if ($batchSize <= 10) {
-						echo "expected: ";
-						printArray($expected);
-						echo "actual: ";
-						printArray($array);
-					}
-				}else{
-					$result[$function]['to'] = $array;
-					$result[$function]['back'] = $a;
-				}
+// runTests(array('shellSort'), 10000);
+function shell_sort(&$arr)
+{
+	if(!is_array($arr))return;
+	$n=count($arr);
+	for($gap=floor($n/2);$gap>0;$gap=floor($gap/=2))
+	{
+		for($i=$gap;$i<$n;++$i)
+		{
+			for($j=$i-$gap;$j>=0&&$arr[$j+$gap]<$arr[$j];$j-=$gap)
+			{
+				$temp=$arr[$j];
+				$arr[$j]=$arr[$j+$gap];
+				$arr[$j+$gap]=$temp;
 			}
 		}
-
-		// foreach ($files as $function => $res) {
-		// 	fwrite($res, $arraySize."\t".sprintf("%f", $times[$function][$arraySize] / $testSize).PHP_EOL);
-		// }
-		// echo 'done'.EOL;
 	}
-	return $result;
-
-	// foreach ($files as $res) {
-	// 	fclose($res);
-	// }
-
-	// foreach ($times as $f => $times) {
-	// 	echo $f.EOL;
-	// 	echo "arraySize".T."time".EOL;
-	// 	if (file_exists($f.'.txt')) unlink($f.'.txt');
-	// 	foreach ($times as $arraySize => $time) {
-	// 		echo $arraySize.T.sprintf("%f", $time / $testSize).EOL;
-	// 		file_put_contents($f.'.txt', $arraySize.T.sprintf("%f", $time / $testSize).PHP_EOL, FILE_APPEND);
-	// 	}
-	// }
 }
-// runTests(array('shellSort'), 10000);
 
 function shellSort(&$a) {
 	$n = count($a);
