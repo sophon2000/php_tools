@@ -225,6 +225,35 @@ function insertSort(&$a) {
 	}
 }
 
+function _insertSort(&$a) {
+	$n = count($a);
+	for ($i=0; $i < $n; $i++) { 
+		$temp = $a[$i];
+		$key = $i;
+		for ($j=$i; $j >0; $j--) { 
+			if ($temp < $a[$j-1]) {
+				$a[$j] = $a[$j-1];
+				$key = $j-1;
+			}
+		}
+		$a[$key] = $temp;
+	}
+}
+
+function _insert_sort(&$a) {
+	for ($i=0; $i < count($a)-1; $i++) { 
+		if ($a[$i] > $a[$i+1]) {
+			$temp = $a[$i+1];
+			$key = $i+1;
+			while ($key > 0 && $a[$key-1] > $temp) {
+				$a[$key] = $a[$key-1];
+				$key--;
+			}
+			$a[$key] = $temp;
+		}
+	}
+}
+
 function selectionSort(&$a) {
 	$n = count($a);
 	for ($i = 0; $i < ($n - 1); $i++) {
@@ -237,6 +266,32 @@ function selectionSort(&$a) {
 		}
 	}
 }
+
+function selection_sort($array){
+    $count=count($array);
+    for($i=0;$i<$count-1;$i++){
+        /*findtheminest*/
+        $min=$i;
+        echo'$min-->'.$array[$min].'-->';
+        for($j=$i+1;$j<$count;$j++){
+            //由小到大排列
+            if($array[$min]>$array[$j]){
+                //表明当前最小的还比当前的元素大
+                $min=$j;
+                //赋值新的最小的
+            }
+        }
+        echo$array[$min].'coco<br/>';
+        /*swap$array[$i]and$array[$min]即将当前内循环的最小元素放在$i位置上*/
+        if($min!=$i){
+            $temp=$array[$min];
+            $array[$min]=$array[$i];
+            $array[$i]=$temp;
+        }
+    }
+    return$array;
+}
+
 
 function mergeSort(&$a, $first = 0, $last = null) {
 	if (is_null($last)) $last = count($a) - 1;
@@ -265,6 +320,45 @@ function mergeSort(&$a, $first = 0, $last = null) {
 		}
 	}
 }
+
+function _mergeSort(&$array, $cmp_function = 'strcmp') {  
+        // Arrays of size < 2 require no action.  
+        if (count($array) < 2) {  
+            return;  
+        }  
+        // Split the array in half  
+        $halfway = count($array) / 2;  
+        $array1 = array_slice($array, 0, $halfway);  
+        $array2 = array_slice($array, $halfway);  
+        // Recurse to sort the two halves  
+        _mergeSort($array1, $cmp_function);  
+        _mergeSort($array2, $cmp_function);  
+        // If all of $array1 is <= all of $array2, just append them.  
+		//array1 与 array2 各自有序;要整体有序，需要比较array1的最后一个元素和array2的第一个元素大小  
+        if (call_user_func($cmp_function, end($array1), $array2[0]) < 1) {    
+            $array = array_merge($array1, $array2);  
+  
+            return;  
+        }  
+        // 将两个有序数组合并为一个有序数组：Merge the two sorted arrays into a single sorted array  
+        $array = array();  
+        $ptr1 = $ptr2 = 0;  
+        while ($ptr1 < count($array1) && $ptr2 < count($array2)) {  
+            if (call_user_func($cmp_function, $array1[$ptr1], $array2[$ptr2]) < 1) {  
+                $array[] = $array1[$ptr1++];  
+            } else {  
+                $array[] = $array2[$ptr2++];  
+            }  
+        }  
+        // Merge the remainder  
+        while ($ptr1 < count($array1)) {  
+            $array[] = $array1[$ptr1++];  
+        }  
+        while ($ptr2 < count($array2)) {  
+            $array[] = $array2[$ptr2++];  
+        }  
+        return;  
+    }  
 
 function quickSort(&$a, $l = 0, $r = 0) {
 	if($r == 0) $r = count($a)-1;
