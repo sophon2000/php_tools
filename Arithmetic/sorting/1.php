@@ -551,6 +551,22 @@ function bubbleSort(&$a) {
 	}
 }
 
+function _bubbleSort($arr, $num)
+{
+	for($j=0;j<$num;$j++)
+	{
+		for($i=$num-1;$i>$j;i--)
+		{
+			if($arr[$i]<$arr[$i-1])//升序：$arr[i]<$arr[i-1] (降序：$arr[i]>$arr[i-1])
+			{
+				$tmp = $arr[$i];
+				$arr[$i] = $arr[$i-1];
+				$arr[$i-1] = $tmp;
+			}
+		}
+	}
+}
+
 function bubbleSortWithFlag(&$a) {
 	$n = count($a);
 	// bubble sorting
