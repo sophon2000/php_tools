@@ -1,5 +1,3 @@
-<?php 
-
 <?php
 $private_key = '-----BEGIN RSA PRIVATE KEY-----
 MIICXQIBAAKBgQC3//sR2tXw0wrC2DySx8vNGlqt3Y7ldU9+LBLI6e1KS5lfc5jl
