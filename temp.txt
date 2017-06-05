@@ -1,3 +1,4 @@
 https://wiki.swoole.com/wiki/page/230.html
 http://bbs.tiexue.net/post_12125110_1.html
 http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html
+http://blog.csdn.net/shagoo/article/details/6647961
