@@ -4,6 +4,7 @@ http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html
 http://blog.csdn.net/shagoo/article/details/6647961
 http://blog.csdn.net/nieyanlong/article/details/7204475
 http://blog.csdn.net/leyangjun/article/details/19916385
+http://www.tuicool.com/articles/VRrI7fe
 #增加主键
 ALTER TABLE `test_314`
 ADD COLUMN `id`  int(10) 
