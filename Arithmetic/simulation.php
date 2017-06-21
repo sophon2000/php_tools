@@ -1,9 +1,8 @@
 <?php 
 /*
 模拟算法
+掷骰子
  */
-// echo rand()%6+1;
-
 
 function demo($num)
 {
@@ -11,18 +10,11 @@ function demo($num)
 	for ($i=1; $i <=$num ; $i++) { 
 		$no = rand()%6+1;
 		$m +=$no;
-		echo '第'.$i.'粒: '.$no.'<br>';
+		$result['list'][$i]=$no;
 	}
-	echo '总点数: '.$m.'<hr>';
-
+	$result['total']=$m;
+	return $result;
 }
 
-demo(5);	
-demo(5);	
-demo(5);	
-demo(5);	
+var_dump(demo(5));	
 
-$n = 5;
-$m = 4;
-
-// echo $m .= $n;

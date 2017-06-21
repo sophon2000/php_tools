@@ -8,12 +8,6 @@ ob_start();
 ob_clean();
 $str = str_repeat('*', 2550);
 ob_implicit_flush();
-// echo $str;
-// echo $str;
-// // 立即传给浏览器
-// ob_flush();
-// flush(); 
-// exit;
 $i =0;
 while (++$i) {
 	echo $str.'<br>';

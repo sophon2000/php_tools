@@ -1,0 +1,34 @@
+常用的php规范
+
+PSR-0 自动加载
+PSR-1 基本代码规范
+PSR-2 代码样式
+PSR-3 日志接口
+PSR-4 规范自动加载的路径问题
+
+PSR-4 与 PSR-0
+PSR-4和PSR-0最大的区别是对下划线（underscore)的定义不同。PSR-4中，在类名中使用下划线没有任何特殊含义。而PSR-0则规定类名中的下划线_会被转化成目录分隔符。
+使用PSR4，我觉得有2个好处：
+1. 减少代码目录的深度
+2. 可以通过前缀快速找到映射目录，提高自动加载的效率
+
+PSR-0
+vendor/
+    vendor_name/
+        package_name/
+            src/
+                Vendor_Name/
+                    Package_Name/
+                        ClassName.php       # Vendor_Name\Package_Name\ClassName
+            tests/
+                Vendor_Name/
+                    Package_Name/
+                        ClassNameTest.php   # Vendor_Name\Package_Name\ClassName
+PSR-4
+vendor/
+    vendor_name/
+        package_name/
+            src/
+                ClassName.php       # Vendor_Name\Package_Name\ClassName
+            tests/
+                ClassNameTest.php   # Vendor_Name\Package_Name\ClassNameTest
