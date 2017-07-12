@@ -26,3 +26,7 @@ var_dump(array_intersect(array(1,2), array(2)));
 if(array_intersect(array(1,2), array(2)) === array(2)){
 echo 'aaaaaaaa';
 }
+
+foreach ($test as $k => $v) {
+	if($v['refer'] == ??)unset($test[$k]);
+}
