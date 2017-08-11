@@ -254,6 +254,18 @@ function _insert_sort(&$a) {
 	}
 }
 
+function 2insert_sort(&$a){
+	for ($i=count($a)-2; $i >= 0; $i--) { 
+	    $key = $a[$i];
+	    $j = $i+1;
+	    while ($j<count($a) && $a[$j]<$key) {
+	        $a[$j-1] = $a[$j];
+	        $j++;
+	    }
+	    $a[$j-1] = $key;
+	}
+}
+
 function selectionSort(&$a) {
 	$n = count($a);
 	for ($i = 0; $i < ($n - 1); $i++) {
