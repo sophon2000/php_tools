@@ -62,9 +62,9 @@ class example {
     }
     //通过di容器获取db实例
     function getList(){
-        $this->_di->get('db')->query("......");//这里具体sql语句就省略不写了
+        $this->_di->get('db')->query("......");
     }
- }
+}
 $di = new Di();
 $di->set("db",function(){
         return new Db("localhost","root","root","test");
