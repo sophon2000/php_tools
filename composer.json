@@ -16,6 +16,6 @@
         "endroid/qrcode":"1.9.*",
         "matyhtf/swoole_framework":"1.16.*",
         "herrera-io/json":"2.0.0",
-        "php-amqplib/php-amqplib": ">=2.6.1",
+        "php-amqplib/php-amqplib":">=2.6.1"
     }
 }
